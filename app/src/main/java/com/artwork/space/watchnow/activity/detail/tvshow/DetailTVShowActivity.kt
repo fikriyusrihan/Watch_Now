@@ -1,10 +1,11 @@
-package com.artwork.space.watchnow.activity
+package com.artwork.space.watchnow.activity.detail.tvshow
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.artwork.space.watchnow.R
 import com.artwork.space.watchnow.data.TVShow
-import com.artwork.space.watchnow.ui.movie.MovieAdapter.Companion.EXTRA_DATA
+import com.artwork.space.watchnow.ui.tvshow.TVShowAdapter.Companion.EXTRA_DATA_TV
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_detail_t_v_show.*
 
@@ -13,7 +14,8 @@ class DetailTVShowActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_t_v_show)
 
-        val entity = intent.getParcelableExtra<TVShow>(EXTRA_DATA)!!
+        val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[DetailTVShowViewModel::class.java]
+        val entity = viewModel.getTVShow(intent)
         val imageUrl = "https://image.tmdb.org/t/p/w500" + entity.imageUrl
         val rating = entity.rating.toFloat() / 2
 

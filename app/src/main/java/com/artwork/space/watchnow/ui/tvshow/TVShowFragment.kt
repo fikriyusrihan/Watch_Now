@@ -23,7 +23,7 @@ class TVShowFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         if (activity != null) {
-            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[TVShowViewModel::class.java]
+            val viewModel = ViewModelProvider(requireActivity(), ViewModelProvider.NewInstanceFactory())[TVShowViewModel::class.java]
             val tvShows = viewModel.getTVShows()
             val tvShowAdapter = TVShowAdapter()
             tvShowAdapter.setTVShow(tvShows)

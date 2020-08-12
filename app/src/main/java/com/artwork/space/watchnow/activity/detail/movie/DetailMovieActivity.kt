@@ -1,7 +1,9 @@
-package com.artwork.space.watchnow.activity
+package com.artwork.space.watchnow.activity.detail.movie
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.artwork.space.watchnow.R
 import com.artwork.space.watchnow.data.Movie
 import com.artwork.space.watchnow.ui.movie.MovieAdapter.Companion.EXTRA_DATA
@@ -13,7 +15,8 @@ class DetailMovieActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_movie)
 
-        val entity = intent.getParcelableExtra<Movie>(EXTRA_DATA)!!
+        val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[DetailMovieViewModel::class.java]
+        val entity = viewModel.getMovie(intent)
         val imageUrl = "https://image.tmdb.org/t/p/w500" + entity.imageUrl
         val rating = entity.rating.toFloat() / 2
 

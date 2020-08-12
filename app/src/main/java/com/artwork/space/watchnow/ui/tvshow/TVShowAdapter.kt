@@ -4,10 +4,9 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.artwork.space.watchnow.R
-import com.artwork.space.watchnow.activity.DetailTVShowActivity
+import com.artwork.space.watchnow.activity.detail.tvshow.DetailTVShowActivity
 import com.artwork.space.watchnow.data.TVShow
 import com.artwork.space.watchnow.ui.movie.MovieAdapter.Companion.EXTRA_DATA
 import com.bumptech.glide.Glide
@@ -16,6 +15,10 @@ import kotlinx.android.synthetic.main.card_layout.view.*
 class TVShowAdapter : RecyclerView.Adapter<TVShowAdapter.TVShowViewHolder>() {
 
     private var listTVShow = ArrayList<TVShow>()
+
+    companion object {
+        const val EXTRA_DATA_TV = "EXTRA_DATA_TV"
+    }
 
     fun setTVShow(tvShows: List<TVShow>) {
         listTVShow.clear()
@@ -53,7 +56,7 @@ class TVShowAdapter : RecyclerView.Adapter<TVShowAdapter.TVShowViewHolder>() {
 
                 setOnClickListener {
                     val intent = Intent(this.context, DetailTVShowActivity::class.java)
-                    intent.putExtra(EXTRA_DATA, tvShow)
+                    intent.putExtra(EXTRA_DATA_TV, tvShow)
                     this.context.startActivity(intent)
                 }
             }

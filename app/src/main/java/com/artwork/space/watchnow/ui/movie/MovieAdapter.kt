@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.artwork.space.watchnow.R
-import com.artwork.space.watchnow.activity.DetailMovieActivity
+import com.artwork.space.watchnow.activity.detail.movie.DetailMovieActivity
 import com.artwork.space.watchnow.data.Movie
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.card_layout.view.*
