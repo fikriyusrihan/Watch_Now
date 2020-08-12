@@ -1,5 +1,6 @@
 package com.artwork.space.watchnow.utils
 
+import com.artwork.space.watchnow.R
 import com.artwork.space.watchnow.data.Movie
 import com.artwork.space.watchnow.data.TVShow
 

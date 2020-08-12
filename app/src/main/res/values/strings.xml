@@ -9,4 +9,8 @@
     <string name="popular_tv_shows">Popular TV Shows</string>
     <string name="movie_title">Movie Title</string>
     <string name="description_dummy">A brilliant but clumsy high school senior vows to get into her late father\'s alma mater by transforming herself and a misfit squad into dance champions.</string>
+    <string name="dummy_priority">198.000</string>
+    <string name="dummy_date">Mar 31, 2001</string>
+    <string name="rating">Rating</string>
+    <string name="poster">Poster</string>
 </resources>

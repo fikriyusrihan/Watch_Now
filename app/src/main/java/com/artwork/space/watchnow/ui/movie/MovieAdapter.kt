@@ -1,11 +1,12 @@
 package com.artwork.space.watchnow.ui.movie
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.artwork.space.watchnow.R
+import com.artwork.space.watchnow.activity.DetailMovieActivity
 import com.artwork.space.watchnow.data.Movie
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.card_layout.view.*
@@ -13,6 +14,10 @@ import kotlinx.android.synthetic.main.card_layout.view.*
 class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     private var listMovies = ArrayList<Movie>()
+
+    companion object {
+        const val EXTRA_DATA = "EXTRA_DATA"
+    }
 
     fun setMovies(movies: List<Movie>) {
         listMovies.clear()
@@ -49,7 +54,9 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
                     .into(card_rating)
 
                 setOnClickListener {
-                    Toast.makeText(context, movie.title, Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this.context, DetailMovieActivity::class.java)
+                    intent.putExtra(EXTRA_DATA, movie)
+                    this.context.startActivity(intent)
                 }
             }
         }
