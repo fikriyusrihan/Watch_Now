@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.artwork.space.watchnow.R
-import com.artwork.space.watchnow.data.Movie
 import com.artwork.space.watchnow.data.TVShow
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.card_layout.view.*
@@ -56,22 +55,26 @@ class TVShowAdapter : RecyclerView.Adapter<TVShowAdapter.TVShowViewHolder>() {
         }
 
         private fun ratingSelected(rating: Int): Int {
-            return if (rating == 1) {
-                R.drawable.one_star
-            } else if (rating == 2) {
-                R.drawable.two_star
-            } else if (rating == 3) {
-                R.drawable.three_star
-            } else if (rating == 4) {
-                R.drawable.four_star
-            } else {
-                R.drawable.five_star
+            return when (rating) {
+                1 -> {
+                    R.drawable.one_star
+                }
+                2 -> {
+                    R.drawable.two_star
+                }
+                3 -> {
+                    R.drawable.three_star
+                }
+                4 -> {
+                    R.drawable.four_star
+                }
+                else -> {
+                    R.drawable.five_star
+                }
             }
         }
 
     }
-
-
 
 
 }
