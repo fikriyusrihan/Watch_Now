@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.artwork.space.watchnow.R
 import com.artwork.space.watchnow.utils.DataDummy
@@ -22,7 +23,8 @@ class TVShowFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         if (activity != null) {
-            val tvShows = DataDummy.generateDummyTvShow()
+            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[TVShowViewModel::class.java]
+            val tvShows = viewModel.getTVShows()
             val tvShowAdapter = TVShowAdapter()
             tvShowAdapter.setTVShow(tvShows)
 

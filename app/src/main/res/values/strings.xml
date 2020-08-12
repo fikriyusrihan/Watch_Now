@@ -13,4 +13,6 @@
     <string name="dummy_date">Mar 31, 2001</string>
     <string name="rating">Rating</string>
     <string name="poster">Poster</string>
+    <string name="back_button">Back Button</string>
+    <string name="transparent_to_white_gradient">Transparent to white gradient</string>
 </resources>

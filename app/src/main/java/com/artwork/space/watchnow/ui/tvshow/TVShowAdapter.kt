@@ -1,12 +1,15 @@
 package com.artwork.space.watchnow.ui.tvshow
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.artwork.space.watchnow.R
+import com.artwork.space.watchnow.activity.DetailTVShowActivity
 import com.artwork.space.watchnow.data.TVShow
+import com.artwork.space.watchnow.ui.movie.MovieAdapter.Companion.EXTRA_DATA
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.card_layout.view.*
 
@@ -49,7 +52,9 @@ class TVShowAdapter : RecyclerView.Adapter<TVShowAdapter.TVShowViewHolder>() {
                     .into(card_rating)
 
                 setOnClickListener {
-                    Toast.makeText(context, tvShow.title, Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this.context, DetailTVShowActivity::class.java)
+                    intent.putExtra(EXTRA_DATA, tvShow)
+                    this.context.startActivity(intent)
                 }
             }
         }

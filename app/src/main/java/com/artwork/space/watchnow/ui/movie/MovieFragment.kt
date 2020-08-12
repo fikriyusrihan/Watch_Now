@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.artwork.space.watchnow.R
 import com.artwork.space.watchnow.utils.DataDummy
@@ -22,7 +24,8 @@ class MovieFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         if (activity != null) {
-            val movies = DataDummy.generateDummyMovie()
+            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MovieViewModel::class.java]
+            val movies = viewModel.getMovies()
             val movieAdapter = MovieAdapter()
             movieAdapter.setMovies(movies)
 
