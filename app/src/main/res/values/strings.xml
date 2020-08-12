@@ -5,4 +5,8 @@
     <string name="title_notifications">Notifications</string>
     <string name="tv_shows">TV Shows</string>
     <string name="movies">Movies</string>
+    <string name="popular_movies">Popular Movies</string>
+    <string name="popular_tv_shows">Popular TV Shows</string>
+    <string name="movie_title">Movie Title</string>
+    <string name="description_dummy">A brilliant but clumsy high school senior vows to get into her late father\'s alma mater by transforming herself and a misfit squad into dance champions.</string>
 </resources>

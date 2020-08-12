@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_marginBottom="30dp"
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/card_image"
+        android:src="@drawable/poster_dummy"
+        android:layout_width="120dp"
+        android:scaleType="centerCrop"
+        android:layout_height="160dp"/>
+    
+    <LinearLayout
+        android:layout_marginStart="16dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+        <TextView
+            android:id="@+id/card_title"
+            style="@style/TitleTextStyle"
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/movie_title"/>
+        
+        <ImageView
+            android:id="@+id/card_rating"
+            android:layout_marginTop="4dp"
+            android:layout_width="wrap_content"
+            android:src="@drawable/five_star"
+            android:layout_height="12dp"/>
+
+        <TextView
+            android:id="@+id/card_description"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="12dp"
+            android:textSize="14sp"
+            style="@style/DefaultTextStyle"
+            android:text="@string/description_dummy"/>
+        
+    </LinearLayout>
+
+</LinearLayout>

@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.artwork.space.watchnow.ui.home.HomeFragment"
+        android:name="com.artwork.space.watchnow.ui.movie.MovieFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_movie" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.artwork.space.watchnow.ui.dashboard.DashboardFragment"
+        android:name="com.artwork.space.watchnow.ui.tvshow.TVShowFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_tv_shows" />
 
