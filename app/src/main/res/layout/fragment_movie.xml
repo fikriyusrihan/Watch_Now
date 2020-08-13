@@ -8,7 +8,7 @@
     tools:context=".ui.movie.MovieFragment">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/fragment_movie_main_title"
         style="@style/MainTextStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/fragment_movie_secondary_title"
         style="@style/MainTextDescriptionStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
         android:paddingBottom="128dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_movie_secondary_title"
         tools:itemCount="4"
         tools:listitem="@layout/card_layout" />
 
