@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.artwork.space.watchnow.R
 import com.artwork.space.watchnow.data.Movie
 import com.artwork.space.watchnow.ui.movie.MovieAdapter.Companion.EXTRA_DATA
+import com.artwork.space.watchnow.utils.DataDummy
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_detail_movie.*
 
@@ -14,13 +15,15 @@ class DetailMovieActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_movie)
 
-        val intent = intent.getParcelableExtra<Movie>(EXTRA_DATA)
+        var intent = intent.getParcelableExtra<Movie>(EXTRA_DATA)
 
         val viewModel = ViewModelProvider(
             this,
             ViewModelProvider.NewInstanceFactory()
         )[DetailMovieViewModel::class.java]
-        viewModel.setMovie(intent!!.imageUrl)
+
+        if (intent == null) intent = DataDummy.generateDummyMovie()[0]
+        viewModel.setMovie(intent.imageUrl)
 
         val entity = viewModel.getMovie()
         val imageUrl = "https://image.tmdb.org/t/p/w500" + entity.imageUrl

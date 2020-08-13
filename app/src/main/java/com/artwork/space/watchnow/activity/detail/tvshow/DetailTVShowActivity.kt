@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.artwork.space.watchnow.R
 import com.artwork.space.watchnow.data.TVShow
 import com.artwork.space.watchnow.ui.tvshow.TVShowAdapter.Companion.EXTRA_DATA_TV
+import com.artwork.space.watchnow.utils.DataDummy
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_detail_t_v_show.*
 
@@ -14,13 +15,15 @@ class DetailTVShowActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_t_v_show)
 
-        val intent = intent.getParcelableExtra<TVShow>(EXTRA_DATA_TV)
+        var intent = intent.getParcelableExtra<TVShow>(EXTRA_DATA_TV)
 
         val viewModel = ViewModelProvider(
             this,
             ViewModelProvider.NewInstanceFactory()
         )[DetailTVShowViewModel::class.java]
-        viewModel.setTVShow(intent!!.imageUrl)
+
+        if (intent == null) intent = DataDummy.generateDummyTvShow()[0]
+        viewModel.setTVShow(intent.imageUrl)
 
         val entity = viewModel.getTVShow()
         val imageUrl = "https://image.tmdb.org/t/p/w500" + entity.imageUrl
