@@ -4,17 +4,23 @@ import android.content.Intent
 import androidx.lifecycle.ViewModel
 import com.artwork.space.watchnow.data.TVShow
 import com.artwork.space.watchnow.ui.tvshow.TVShowAdapter.Companion.EXTRA_DATA_TV
+import com.artwork.space.watchnow.utils.DataDummy
 
 class DetailTVShowViewModel: ViewModel() {
-    private var tvShowDataDetail = TVShow()
+    private lateinit var tvShowImgUrl: String
 
-    private fun setTVShow(intent: Intent) {
-        tvShowDataDetail = intent.getParcelableExtra(EXTRA_DATA_TV)!!
+    fun setTVShow(tvShowImgUrl: String) {
+        this.tvShowImgUrl = tvShowImgUrl
     }
 
-    fun getTVShow(intent: Intent): TVShow {
-        setTVShow(intent)
+    fun getTVShow(): TVShow {
+        lateinit var tvShow: TVShow
+        val tvShows = DataDummy.generateDummyTvShow()
 
-        return tvShowDataDetail
+        for (tvShowEntity in tvShows) {
+            if (tvShowEntity.imageUrl == tvShowImgUrl) tvShow = tvShowEntity
+        }
+
+        return tvShow
     }
 }

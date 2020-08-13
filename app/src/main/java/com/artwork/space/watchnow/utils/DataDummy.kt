@@ -146,12 +146,12 @@ object DataDummy {
         )
         listTvShow.add(
             TVShow(
-                "/qJdfO3ahgAMf2rcmhoqngjBBZW1.jpg",
-                "Rick and Morty",
-                "Rick is a mentally-unbalanced but scientifically-gifted old man who has recently reconnected with his family. He spends most of his time involving his young grandson Morty in dangerous, outlandish adventures throughout space and alternate universes. Compounded with Morty's already unstable family life, these events cause Morty much distress at home and school.",
+                "/gHUCCMy1vvj58tzE3dZqeC9SXus.jpg",
+                "Marvel's Agents of S.H.I.E.L.D.",
+                "Agent Phil Coulson of S.H.I.E.L.D. (Strategic Homeland Intervention, Enforcement and Logistics Division) puts together a team of agents to investigate the new, the strange and the unknown around the globe, protecting the ordinary from the extraordinary.",
                 "2013-12-02",
                 "185",
-                "8.6"
+                "9.6"
             )
         )
         listTvShow.add(
@@ -176,12 +176,12 @@ object DataDummy {
         )
         listTvShow.add(
             TVShow(
-                "/yTZQkSsxUFJZJe67IenRM0AEklc.jpg",
-                "The Simpsons",
-                "Set in Springfield, the average American town, the show focuses on the antics and everyday adventures of the Simpson family; Homer, Marge, Bart, Lisa and Maggie, as well as a virtual cast of thousands. Since the beginning, the series has been a pop culture icon, attracting hundreds of celebrities to guest star. The show has also made name for itself in its fearless satirical take on politics, media and American life in general.",
-                "1989-12-17",
+                "/wcaDIAG1QdXQLRaj4vC1EFdBT2.jpg",
+                "The 100",
+                "100 years in the future, when the Earth has been abandoned due to radioactivity, the last surviving humans live on an ark orbiting the planet — but the ark won't last forever. So the repressive regime picks 100 expendable juvenile delinquents to send down to Earth to see if the planet is still habitable.",
+                "2014-03-19",
                 "193.969",
-                "7.2"
+                "7.6"
             )
         )
         listTvShow.add(

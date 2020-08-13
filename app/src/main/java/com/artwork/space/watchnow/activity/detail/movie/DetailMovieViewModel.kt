@@ -4,17 +4,24 @@ import android.content.Intent
 import androidx.lifecycle.ViewModel
 import com.artwork.space.watchnow.data.Movie
 import com.artwork.space.watchnow.ui.movie.MovieAdapter.Companion.EXTRA_DATA
+import com.artwork.space.watchnow.utils.DataDummy
 
 class DetailMovieViewModel : ViewModel() {
-    private var movieDataDetail = Movie()
+    private lateinit var movieImgUrl: String
 
-    private fun setMovie(intent: Intent) {
-        movieDataDetail = intent.getParcelableExtra(EXTRA_DATA)!!
+    fun setMovie(movieImgUrl: String) {
+        this.movieImgUrl = movieImgUrl
     }
 
-    fun getMovie(intent: Intent) : Movie{
-        setMovie(intent)
+    fun getMovie() : Movie{
+        lateinit var movie: Movie
+        val movies = DataDummy.generateDummyMovie()
 
-        return movieDataDetail
+        for (movieEntity in movies) {
+            if (movieEntity.imageUrl == movieImgUrl) movie = movieEntity
+        }
+
+
+        return movie
     }
 }

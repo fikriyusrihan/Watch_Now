@@ -14,8 +14,15 @@ class DetailTVShowActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_t_v_show)
 
-        val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[DetailTVShowViewModel::class.java]
-        val entity = viewModel.getTVShow(intent)
+        val intent = intent.getParcelableExtra<TVShow>(EXTRA_DATA_TV)
+
+        val viewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.NewInstanceFactory()
+        )[DetailTVShowViewModel::class.java]
+        viewModel.setTVShow(intent!!.imageUrl)
+
+        val entity = viewModel.getTVShow()
         val imageUrl = "https://image.tmdb.org/t/p/w500" + entity.imageUrl
         val rating = entity.rating.toFloat() / 2
 
