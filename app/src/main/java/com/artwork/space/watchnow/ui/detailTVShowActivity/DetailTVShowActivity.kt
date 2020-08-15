@@ -5,9 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.artwork.space.watchnow.R
-import com.artwork.space.watchnow.data.source.local.entity.TVShow
-import com.artwork.space.watchnow.ui.tvshowFragment.TVShowAdapter.Companion.EXTRA_DATA_TV
-import com.artwork.space.watchnow.utils.DataDummy
 import com.artwork.space.watchnow.viewmodel.ViewModelFactory
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_detail_t_v_show.*

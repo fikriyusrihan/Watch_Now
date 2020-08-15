@@ -4,7 +4,7 @@ import com.artwork.space.watchnow.data.source.local.entity.Movie
 import com.artwork.space.watchnow.data.source.local.entity.TVShow
 
 object DataDummy {
-    fun generateDummyMovie() : ArrayList<Movie>{
+    fun generateDummyMovie(): ArrayList<Movie> {
         val listMovie = ArrayList<Movie>()
 
         listMovie.add(
@@ -120,7 +120,7 @@ object DataDummy {
         return listMovie
     }
 
-    fun generateDummyTvShow(): ArrayList<TVShow>{
+    fun generateDummyTvShow(): ArrayList<TVShow> {
         val listTvShow = ArrayList<TVShow>()
         listTvShow.add(
             TVShow(

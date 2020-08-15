@@ -7,7 +7,8 @@ import com.artwork.space.watchnow.data.source.local.entity.TVShow
 import com.artwork.space.watchnow.data.source.remote.RemoteDataSource
 import com.artwork.space.watchnow.utils.DataDummy
 import com.nhaarman.mockitokotlin2.verify
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Rule
 import org.junit.Test
 import org.mockito.Mockito

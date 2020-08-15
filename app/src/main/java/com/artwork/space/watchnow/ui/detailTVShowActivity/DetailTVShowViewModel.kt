@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.artwork.space.watchnow.data.source.local.entity.TVShow
 import com.artwork.space.watchnow.ui.tvshowFragment.TVShowAdapter.Companion.EXTRA_DATA_TV
-import com.artwork.space.watchnow.utils.DataDummy
 
 class DetailTVShowViewModel : ViewModel() {
     private var tvShowDataDetail = MutableLiveData<TVShow>()
