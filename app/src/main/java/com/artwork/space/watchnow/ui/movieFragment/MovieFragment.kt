@@ -1,15 +1,16 @@
-package com.artwork.space.watchnow.ui.movie
+package com.artwork.space.watchnow.ui.movieFragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.artwork.space.watchnow.R
-import com.artwork.space.watchnow.utils.DataDummy
+import com.artwork.space.watchnow.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.fragment_movie.*
 
 class MovieFragment : Fragment() {
@@ -24,10 +25,18 @@ class MovieFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         if (activity != null) {
-            val viewModel = ViewModelProvider(requireActivity(), ViewModelProvider.NewInstanceFactory())[MovieViewModel::class.java]
-            val movies = viewModel.getMovies()
+
             val movieAdapter = MovieAdapter()
-            movieAdapter.setMovies(movies)
+
+            val factory = ViewModelFactory.getInstance()
+            val viewModel = ViewModelProvider(this, factory)[MovieViewModel::class.java]
+
+            movie_fragment_progress_bar.visibility = View.VISIBLE
+            viewModel.getAllMovies().observe(viewLifecycleOwner, Observer { movies ->
+                movie_fragment_progress_bar.visibility = View.INVISIBLE
+                movieAdapter.setMovies(movies)
+                movieAdapter.notifyDataSetChanged()
+            })
 
             with(main_movies_recycler_view) {
                 layoutManager = LinearLayoutManager(context)

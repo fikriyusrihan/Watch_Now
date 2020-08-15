@@ -1,5 +1,6 @@
 package com.artwork.space.watchnow.activity.detail.movie
 
+import com.artwork.space.watchnow.ui.detailMovieActivity.DetailMovieViewModel
 import com.artwork.space.watchnow.utils.DataDummy
 import org.junit.Test
 

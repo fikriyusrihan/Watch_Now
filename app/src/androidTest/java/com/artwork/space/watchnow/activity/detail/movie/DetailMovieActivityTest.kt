@@ -6,13 +6,15 @@ import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.rule.ActivityTestRule
 import com.artwork.space.watchnow.R
+import com.artwork.space.watchnow.ui.detailMovieActivity.DetailMovieActivity
+import com.artwork.space.watchnow.ui.detailMovieActivity.DetailMovieViewModel
 import com.artwork.space.watchnow.utils.DataDummy
-import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
 class DetailMovieActivityTest {
-    private val viewModel: DetailMovieViewModel = DetailMovieViewModel()
+    private val viewModel: DetailMovieViewModel =
+        DetailMovieViewModel()
     private val dummyMovie = DataDummy.generateDummyMovie()[0]
     private val dummyUrl = dummyMovie.imageUrl
 

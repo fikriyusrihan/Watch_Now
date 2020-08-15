@@ -1,4 +1,4 @@
-package com.artwork.space.watchnow.ui.tvshow
+package com.artwork.space.watchnow.ui.tvshowFragment
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -6,9 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.artwork.space.watchnow.R
-import com.artwork.space.watchnow.activity.detail.tvshow.DetailTVShowActivity
-import com.artwork.space.watchnow.data.TVShow
-import com.artwork.space.watchnow.ui.movie.MovieAdapter.Companion.EXTRA_DATA
+import com.artwork.space.watchnow.ui.detailTVShowActivity.DetailTVShowActivity
+import com.artwork.space.watchnow.data.source.local.entity.TVShow
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.card_layout.view.*
 

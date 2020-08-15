@@ -1,4 +1,4 @@
-package com.artwork.space.watchnow.data
+package com.artwork.space.watchnow.data.source.local.entity
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

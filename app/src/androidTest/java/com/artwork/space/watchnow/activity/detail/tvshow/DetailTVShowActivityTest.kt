@@ -6,13 +6,15 @@ import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.rule.ActivityTestRule
 import com.artwork.space.watchnow.R
+import com.artwork.space.watchnow.ui.detailTVShowActivity.DetailTVShowActivity
+import com.artwork.space.watchnow.ui.detailTVShowActivity.DetailTVShowViewModel
 import com.artwork.space.watchnow.utils.DataDummy
-import org.junit.Assert.*
 import org.junit.Rule
 import org.junit.Test
 
 class DetailTVShowActivityTest {
-    private val viewModel: DetailTVShowViewModel = DetailTVShowViewModel()
+    private val viewModel: DetailTVShowViewModel =
+        DetailTVShowViewModel()
     private val dummyTVShow = DataDummy.generateDummyTvShow()[0]
     private val dummyImgUrl = dummyTVShow.imageUrl
 

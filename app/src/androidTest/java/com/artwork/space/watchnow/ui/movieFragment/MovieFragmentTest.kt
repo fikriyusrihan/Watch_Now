@@ -1,4 +1,4 @@
-package com.artwork.space.watchnow.ui.movie
+package com.artwork.space.watchnow.ui.movieFragment
 
 import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso.onView

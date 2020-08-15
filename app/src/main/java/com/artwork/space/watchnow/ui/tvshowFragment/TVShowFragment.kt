@@ -1,14 +1,15 @@
-package com.artwork.space.watchnow.ui.tvshow
+package com.artwork.space.watchnow.ui.tvshowFragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.artwork.space.watchnow.R
-import com.artwork.space.watchnow.utils.DataDummy
+import com.artwork.space.watchnow.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.fragment_tv_shows.*
 
 class TVShowFragment : Fragment() {
@@ -23,10 +24,20 @@ class TVShowFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         if (activity != null) {
-            val viewModel = ViewModelProvider(requireActivity(), ViewModelProvider.NewInstanceFactory())[TVShowViewModel::class.java]
-            val tvShows = viewModel.getTVShows()
+
             val tvShowAdapter = TVShowAdapter()
-            tvShowAdapter.setTVShow(tvShows)
+            val factory = ViewModelFactory.getInstance()
+            val viewModel = ViewModelProvider(
+                this,
+                factory
+            )[TVShowViewModel::class.java]
+
+            tv_show_fragment_progress_bar.visibility = View.VISIBLE
+            viewModel.getAllTVShows().observe(viewLifecycleOwner, Observer { tvShows ->
+                tv_show_fragment_progress_bar.visibility = View.GONE
+                tvShowAdapter.setTVShow(tvShows)
+                tvShowAdapter.notifyDataSetChanged()
+            })
 
             with(main_tv_recycler_view) {
                 layoutManager = LinearLayoutManager(context)

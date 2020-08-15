@@ -55,4 +55,7 @@ dependencies {
     androidTestImplementation "androidx.test:rules:1.2.0"
     debugImplementation 'androidx.fragment:fragment-testing:1.2.5'
 
+    //Async Http
+    implementation 'com.loopj.android:android-async-http:1.4.9'
+    
 }

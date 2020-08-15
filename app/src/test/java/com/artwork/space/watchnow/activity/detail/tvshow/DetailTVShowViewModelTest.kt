@@ -1,5 +1,6 @@
 package com.artwork.space.watchnow.activity.detail.tvshow
 
+import com.artwork.space.watchnow.ui.detailTVShowActivity.DetailTVShowViewModel
 import com.artwork.space.watchnow.utils.DataDummy
 import org.junit.Test
 

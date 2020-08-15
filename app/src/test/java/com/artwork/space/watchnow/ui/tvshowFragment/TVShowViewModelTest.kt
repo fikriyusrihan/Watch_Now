@@ -1,4 +1,4 @@
-package com.artwork.space.watchnow.ui.tvshow
+package com.artwork.space.watchnow.ui.tvshowFragment
 
 import org.junit.Test
 

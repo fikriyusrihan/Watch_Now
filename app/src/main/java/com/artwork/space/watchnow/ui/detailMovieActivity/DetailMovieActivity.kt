@@ -1,12 +1,11 @@
-package com.artwork.space.watchnow.activity.detail.movie
+package com.artwork.space.watchnow.ui.detailMovieActivity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.artwork.space.watchnow.R
-import com.artwork.space.watchnow.data.Movie
-import com.artwork.space.watchnow.ui.movie.MovieAdapter.Companion.EXTRA_DATA
-import com.artwork.space.watchnow.utils.DataDummy
+import com.artwork.space.watchnow.viewmodel.ViewModelFactory
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_detail_movie.*
 
@@ -15,32 +14,30 @@ class DetailMovieActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_movie)
 
-        var intent = intent.getParcelableExtra<Movie>(EXTRA_DATA)
+        val factory = ViewModelFactory.getInstance()
 
         val viewModel = ViewModelProvider(
             this,
-            ViewModelProvider.NewInstanceFactory()
+            factory
         )[DetailMovieViewModel::class.java]
 
-        if (intent == null) intent = DataDummy.generateDummyMovie()[0]
-        viewModel.setMovie(intent.imageUrl)
+        viewModel.getMovie(intent).observe(this, Observer { entity ->
+            val imageUrl = "https://image.tmdb.org/t/p/w500" + entity.imageUrl
+            val rating = entity.rating.toFloat().div(2)
 
-        val entity = viewModel.getMovie()
-        val imageUrl = "https://image.tmdb.org/t/p/w500" + entity.imageUrl
-        val rating = entity.rating.toFloat() / 2
+            detail_movie_tv_title.text = entity.title
+            detail_movie_tv_popularity.text = entity.popularity
+            detail_movie_tv_description.text = entity.description
+            detail_movie_tv_release_date.text = entity.releaseDate
 
-        detail_movie_tv_title.text = entity.title
-        detail_movie_tv_popularity.text = entity.popularity
-        detail_movie_tv_description.text = entity.description
-        detail_movie_tv_release_date.text = entity.releaseDate
+            Glide.with(this)
+                .load(imageUrl)
+                .into(detail_movie_iv_poster)
 
-        Glide.with(this)
-            .load(imageUrl)
-            .into(detail_movie_iv_poster)
-
-        Glide.with(this)
-            .load(ratingSelected(rating.toInt()))
-            .into(detail_movie_iv_rating)
+            Glide.with(this)
+                .load(ratingSelected(rating.toInt()))
+                .into(detail_movie_iv_rating)
+        })
 
         detail_movie_btn_back.setOnClickListener { finish() }
     }
