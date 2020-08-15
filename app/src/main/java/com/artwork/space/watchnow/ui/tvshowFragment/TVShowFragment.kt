@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.artwork.space.watchnow.R
+import com.artwork.space.watchnow.utils.EspressoIdlingResource
 import com.artwork.space.watchnow.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.fragment_tv_shows.*
 
@@ -33,10 +34,12 @@ class TVShowFragment : Fragment() {
             )[TVShowViewModel::class.java]
 
             tv_show_fragment_progress_bar.visibility = View.VISIBLE
+            EspressoIdlingResource.increment()
             viewModel.getAllTVShows().observe(viewLifecycleOwner, Observer { tvShows ->
                 tv_show_fragment_progress_bar.visibility = View.GONE
                 tvShowAdapter.setTVShow(tvShows)
                 tvShowAdapter.notifyDataSetChanged()
+                EspressoIdlingResource.decrement()
             })
 
             with(main_tv_recycler_view) {

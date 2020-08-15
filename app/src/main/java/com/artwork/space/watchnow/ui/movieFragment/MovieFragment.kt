@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.artwork.space.watchnow.R
+import com.artwork.space.watchnow.utils.EspressoIdlingResource
 import com.artwork.space.watchnow.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.fragment_movie.*
 
@@ -31,11 +32,13 @@ class MovieFragment : Fragment() {
             val factory = ViewModelFactory.getInstance()
             val viewModel = ViewModelProvider(this, factory)[MovieViewModel::class.java]
 
+            EspressoIdlingResource.increment()
             movie_fragment_progress_bar.visibility = View.VISIBLE
             viewModel.getAllMovies().observe(viewLifecycleOwner, Observer { movies ->
                 movie_fragment_progress_bar.visibility = View.INVISIBLE
                 movieAdapter.setMovies(movies)
                 movieAdapter.notifyDataSetChanged()
+                EspressoIdlingResource.decrement()
             })
 
             with(main_movies_recycler_view) {

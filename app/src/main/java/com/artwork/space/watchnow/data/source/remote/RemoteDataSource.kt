@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.artwork.space.watchnow.data.source.local.entity.Movie
 import com.artwork.space.watchnow.data.source.local.entity.TVShow
+import com.artwork.space.watchnow.utils.EspressoIdlingResource
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
 import cz.msebera.android.httpclient.Header
@@ -25,6 +26,7 @@ class RemoteDataSource {
         val url =
             "https://api.themoviedb.org/3/movie/popular?api_key=$API_KEY&language=en-US&page=1"
 
+        EspressoIdlingResource.increment()
         client.get(url, object : AsyncHttpResponseHandler() {
             override fun onSuccess(
                 statusCode: Int,
@@ -74,12 +76,16 @@ class RemoteDataSource {
             }
 
         })
+
+        EspressoIdlingResource.decrement()
     }
 
     private fun setAllTVShow() {
         val tvShows = ArrayList<TVShow>()
         val client = AsyncHttpClient()
         val url = "https://api.themoviedb.org/3/tv/popular?api_key=$API_KEY&language=en-US&page=1"
+
+        EspressoIdlingResource.increment()
         client.get(url, object : AsyncHttpResponseHandler() {
             override fun onSuccess(
                 statusCode: Int,
@@ -129,15 +135,21 @@ class RemoteDataSource {
             }
 
         })
+
+        EspressoIdlingResource.decrement()
     }
 
     fun getAllMovies(): LiveData<ArrayList<Movie>> {
+        EspressoIdlingResource.increment()
         setAllMovies()
+        EspressoIdlingResource.decrement()
         return moviesList
     }
 
     fun getAllTVShow(): LiveData<ArrayList<TVShow>> {
+        EspressoIdlingResource.increment()
         setAllTVShow()
+        EspressoIdlingResource.decrement()
         return tvShowsList
     }
 }
