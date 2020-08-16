@@ -1,4 +1,4 @@
-package com.artwork.space.watchnow.ui.tvshowFragment
+package com.artwork.space.watchnow.ui.favoriteFragment
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -6,44 +6,43 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.artwork.space.watchnow.R
-import com.artwork.space.watchnow.data.source.local.entity.TVShow
-import com.artwork.space.watchnow.ui.detailTVShowActivity.DetailTVShowActivity
+import com.artwork.space.watchnow.data.source.local.entity.Movie
+import com.artwork.space.watchnow.ui.detailMovieActivity.DetailMovieActivity
+import com.artwork.space.watchnow.ui.movieFragment.MovieAdapter
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.card_layout.view.*
 
-class TVShowAdapter : RecyclerView.Adapter<TVShowAdapter.TVShowViewHolder>() {
+class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.FavoriteViewHolder>() {
 
-    private var listTVShow = ArrayList<TVShow>()
+    private var listMovies = ArrayList<Movie>()
 
-    companion object {
-        const val EXTRA_DATA_TV = "EXTRA_DATA_TV"
+    fun setMovies(movies: List<Movie>) {
+        listMovies.clear()
+        listMovies.addAll(movies)
     }
 
-    fun setTVShow(tvShows: List<TVShow>) {
-        listTVShow.clear()
-        listTVShow.addAll(tvShows)
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TVShowViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.card_layout, parent, false)
-        return TVShowViewHolder(view)
+        return FavoriteViewHolder(view)
     }
 
-    override fun getItemCount(): Int = listTVShow.size
-
-    override fun onBindViewHolder(holder: TVShowViewHolder, position: Int) {
-        val tvShow = listTVShow[position]
-        holder.bind(tvShow)
+    override fun getItemCount(): Int {
+        return listMovies.size
     }
 
-    class TVShowViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(tvShow: TVShow) {
+    override fun onBindViewHolder(holder: FavoriteViewHolder, position: Int) {
+        val movie = listMovies[position]
+        holder.bind(movie)
+    }
+
+    class FavoriteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind(movie: Movie) {
             with(itemView) {
-                val imageUrl = "https://image.tmdb.org/t/p/w185" + tvShow.imageUrl
-                val rating = tvShow.rating.toFloat() / 2
+                val imageUrl = "https://image.tmdb.org/t/p/w185" + movie.imageUrl
+                val rating = movie.rating.toFloat() / 2
 
-                card_title.text = tvShow.title
-                card_description.text = tvShow.description
+                card_title.text = movie.title
+                card_description.text = movie.description
 
                 Glide.with(context)
                     .load(imageUrl)
@@ -56,8 +55,8 @@ class TVShowAdapter : RecyclerView.Adapter<TVShowAdapter.TVShowViewHolder>() {
                     .into(card_rating)
 
                 setOnClickListener {
-                    val intent = Intent(this.context, DetailTVShowActivity::class.java)
-                    intent.putExtra(EXTRA_DATA_TV, tvShow)
+                    val intent = Intent(this.context, DetailMovieActivity::class.java)
+                    intent.putExtra(MovieAdapter.EXTRA_DATA, movie)
                     this.context.startActivity(intent)
                 }
             }
@@ -82,7 +81,6 @@ class TVShowAdapter : RecyclerView.Adapter<TVShowAdapter.TVShowViewHolder>() {
                 }
             }
         }
-
     }
 
 

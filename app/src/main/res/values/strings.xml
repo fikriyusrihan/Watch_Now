@@ -15,4 +15,5 @@
     <string name="poster">Poster</string>
     <string name="back_button">Back Button</string>
     <string name="transparent_to_white_gradient">Transparent to white gradient</string>
+    <string name="favorite">Favorite</string>
 </resources>

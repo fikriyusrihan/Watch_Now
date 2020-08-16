@@ -14,7 +14,7 @@ class DetailTVShowActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_t_v_show)
 
-        val factory = ViewModelFactory.getInstance()
+        val factory = ViewModelFactory.getInstance(application)
 
         val viewModel = ViewModelProvider(
             this,
@@ -32,6 +32,8 @@ class DetailTVShowActivity : AppCompatActivity() {
 
             Glide.with(this)
                 .load(imageUrl)
+                .placeholder(R.drawable.placeholder_loading)
+                .error(R.drawable.placeholder_broken)
                 .into(detail_tv_iv_poster)
 
             Glide.with(this)

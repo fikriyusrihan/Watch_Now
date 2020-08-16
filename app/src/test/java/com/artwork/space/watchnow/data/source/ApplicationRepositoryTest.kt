@@ -1,5 +1,6 @@
 package com.artwork.space.watchnow.data.source
 
+import android.app.Application
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import com.artwork.space.watchnow.data.source.local.entity.Movie
@@ -17,7 +18,8 @@ import org.mockito.Mockito.`when`
 class ApplicationRepositoryTest {
 
     private val remoteDataSource = Mockito.mock(RemoteDataSource::class.java)
-    private val applicationRepository = ApplicationRepository(remoteDataSource)
+    private val application = Application()
+    private val applicationRepository = ApplicationRepository(remoteDataSource, application)
 
     private val moviesResponse = DataDummy.generateDummyMovie()
     private val tvShowsResponse = DataDummy.generateDummyTvShow()

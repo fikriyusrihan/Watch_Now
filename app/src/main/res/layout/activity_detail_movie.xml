@@ -29,27 +29,29 @@
             android:layout_height="32dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="48dp"
+            android:contentDescription="@string/back_button"
             android:src="@drawable/ic_baseline_arrow_back_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/back_button" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:contentDescription="@string/transparent_to_white_gradient"
             android:src="@drawable/transparent_to_white_gradient"
             app:layout_constraintBottom_toBottomOf="@+id/detail_movie_iv_poster"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:contentDescription="@string/transparent_to_white_gradient" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/detail_movie_tv_title"
             style="@style/MainTextStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
             android:text="@string/movie_title"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detail_movie_iv_poster" />
 

@@ -27,7 +27,7 @@ class TVShowFragment : Fragment() {
         if (activity != null) {
 
             val tvShowAdapter = TVShowAdapter()
-            val factory = ViewModelFactory.getInstance()
+            val factory = ViewModelFactory.getInstance(requireActivity().application)
             val viewModel = ViewModelProvider(
                 this,
                 factory

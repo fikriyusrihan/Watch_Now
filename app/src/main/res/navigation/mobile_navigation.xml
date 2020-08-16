@@ -17,4 +17,10 @@
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_tv_shows" />
 
+    <fragment
+        android:id="@+id/navigation_favorite"
+        android:name="com.artwork.space.watchnow.ui.favoriteFragment.FavoriteFragment"
+        android:label="@string/favorite"
+        tools:layout="@layout/fragment_favorite"/>
+
 </navigation>

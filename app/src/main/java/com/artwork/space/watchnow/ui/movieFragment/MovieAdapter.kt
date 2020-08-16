@@ -47,6 +47,8 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
                 Glide.with(context)
                     .load(imageUrl)
+                    .placeholder(R.drawable.placeholder_loading)
+                    .error(R.drawable.placeholder_broken)
                     .into(card_image)
 
                 Glide.with(context)
