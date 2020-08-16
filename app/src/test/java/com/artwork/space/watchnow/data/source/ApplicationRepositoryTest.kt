@@ -10,22 +10,32 @@ import com.artwork.space.watchnow.utils.DataDummy
 import com.nhaarman.mockitokotlin2.verify
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.Mockito.`when`
 
 class ApplicationRepositoryTest {
 
     private val remoteDataSource = Mockito.mock(RemoteDataSource::class.java)
-    private val application = Application()
-    private val applicationRepository = ApplicationRepository(remoteDataSource, application)
-
     private val moviesResponse = DataDummy.generateDummyMovie()
     private val tvShowsResponse = DataDummy.generateDummyTvShow()
 
+    private lateinit var applicationRepository: ApplicationRepository
+
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
+
+    @Mock
+    private lateinit var application : Application
+
+    @Before
+    fun setUp() {
+        application = Application()
+        applicationRepository = ApplicationRepository(remoteDataSource, application)
+    }
 
     @Test
     fun getAllMovies() {

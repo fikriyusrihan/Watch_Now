@@ -33,11 +33,11 @@ class FavoriteFragment : Fragment() {
             val factory = ViewModelFactory.getInstance(requireActivity().application)
             val viewModel = ViewModelProvider(this, factory)[FavoriteFragmentViewModel::class.java]
 
-            EspressoIdlingResource.increment()
+            //EspressoIdlingResource.increment()
             viewModel.getAllFavoriteMovie().observe(viewLifecycleOwner, Observer { movies ->
                 favoriteAdapter.setMovies(movies)
                 favoriteAdapter.notifyDataSetChanged()
-                EspressoIdlingResource.decrement()
+                //EspressoIdlingResource.decrement()
             })
 
             with(favorite_recycler_view) {

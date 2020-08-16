@@ -9,6 +9,7 @@ object DataDummy {
 
         listMovie.add(
             Movie(
+                "1",
                 "/xBHvZcjRiWyobQ9kxBhO6B2dtRI.jpg",
                 "Ad Astra",
                 "The near future, a time when both hope and hardships drive humanity to look to the stars and beyond. While a mysterious phenomenon menaces to destroy life on planet Earth, astronaut Roy McBride undertakes a mission across the immensity of space and its many perils to uncover the truth about a lost expedition that decades before boldly faced emptiness and silence in search of the unknown.",
@@ -20,6 +21,7 @@ object DataDummy {
 
         listMovie.add(
             Movie(
+                "2",
                 "/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg",
                 "Joker",
                 "During the 1980s, a failed stand-up comedian is driven insane and turns to a life of crime and chaos in Gotham City while becoming an infamous psychopathic crime figure.",
@@ -31,6 +33,7 @@ object DataDummy {
 
         listMovie.add(
             Movie(
+                "3",
                 "/db32LaOibwEliAmSL2jjDF6oDdj.jpg",
                 "Star Wars: The Rise of Skywalker",
                 "The surviving Resistance faces the First Order once again as the journey of Rey, Finn and Poe Dameron continues. With the power and knowledge of generations behind them, the final battle begins.",
@@ -42,6 +45,7 @@ object DataDummy {
 
         listMovie.add(
             Movie(
+                "4",
                 "/jyw8VKYEiM1UDzPB7NsisUgBeJ8.jpg",
                 "Jumanji: The Next Level",
                 "As the gang return to Jumanji to rescue one of their own, they discover that nothing is as they expect. The players will have to brave parts unknown and unexplored in order to escape the world’s most dangerous game.",
@@ -53,6 +57,7 @@ object DataDummy {
 
         listMovie.add(
             Movie(
+                "5",
                 "/yJdeWaVXa2se9agI6B4mQunVYkB.jpg",
                 "Ip Man 4: The Finale",
                 "Following the death of his wife, Ip Man travels to San Francisco to ease tensions between the local kung fu masters and his star student, Bruce Lee, while searching for a better future for his son.",
@@ -64,6 +69,7 @@ object DataDummy {
 
         listMovie.add(
             Movie(
+                "6",
                 "/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
                 "Parasite",
                 "All unemployed, Ki-taek's family takes peculiar interest in the wealthy and glamorous Parks for their livelihood until they get entangled in an unexpected incident.",
@@ -75,6 +81,7 @@ object DataDummy {
 
         listMovie.add(
             Movie(
+                "7",
                 "/y95lQLnuNKdPAzw9F9Ab8kJ80c3.jpg",
                 "Bad Boys for Life",
                 "Marcus Burnett is now a police inspector and Mike Lowery is in a midlife crisis. They unite again when an Albanian mercenary, whose brother they killed, promises them an important bonus.",
@@ -86,6 +93,7 @@ object DataDummy {
 
         listMovie.add(
             Movie(
+                "8",
                 "/vqzNJRH4YyquRiWxCCOH0aXggHI.jpg",
                 "Terminator: Dark Fate",
                 "Decades after Sarah Connor prevented Judgment Day, a lethal new Terminator is sent to eliminate the future leader of the resistance. In a fight to save mankind, battle-hardened Sarah Connor teams up with an unexpected ally and an enhanced super soldier to stop the deadliest Terminator yet.",
@@ -97,6 +105,7 @@ object DataDummy {
 
         listMovie.add(
             Movie(
+                "9",
                 "/AuGiPiGMYMkSosOJ3BQjDEAiwtO.jpg",
                 "1917",
                 "At the height of the First World War, two young British soldiers, Schofield and Blake are given a seemingly impossible mission. In a race against time, they must cross enemy territory and deliver a message that will stop a deadly attack on hundreds of soldiers—Blake's own brother among them.",
@@ -108,6 +117,7 @@ object DataDummy {
 
         listMovie.add(
             Movie(
+                "10",
                 "/pjeMs3yqRmFL3giJy4PMXWZTTPa.jpg",
                 "Frozen II",
                 "Elsa, Anna, Kristoff and Olaf head far into the forest to learn the truth about an ancient mystery of their kingdom.",

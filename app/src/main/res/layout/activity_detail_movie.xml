@@ -42,18 +42,42 @@
             app:layout_constraintBottom_toBottomOf="@+id/detail_movie_iv_poster"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <TextView
-            android:id="@+id/detail_movie_tv_title"
-            style="@style/MainTextStyle"
+        <LinearLayout
+            android:id="@+id/linear_layout_movie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
-            android:text="@string/movie_title"
+            android:orientation="horizontal"
+            android:weightSum="10"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detail_movie_iv_poster" />
+            app:layout_constraintTop_toBottomOf="@+id/detail_movie_iv_poster">
+
+            <TextView
+                android:id="@+id/detail_movie_tv_title"
+                style="@style/MainTextStyle"
+                android:layout_weight="10"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/movie_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/detail_movie_iv_poster" />
+
+            <ToggleButton
+                android:id="@+id/detail_movie_btn_favorite"
+                android:textOff=""
+                android:textOn=""
+                android:backgroundTint="#df5e88"
+                android:text=""
+                android:layout_gravity="center"
+                android:checked="false"
+                android:background="@drawable/button_favorite"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/detail_movie_iv_rating"
@@ -63,7 +87,7 @@
             android:contentDescription="@string/rating"
             android:src="@drawable/five_star"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detail_movie_tv_title" />
+            app:layout_constraintTop_toBottomOf="@+id/linear_layout_movie" />
 
         <TextView
             android:id="@+id/detail_movie_tv_popularity"
@@ -75,7 +99,7 @@
             android:textSize="14sp"
             android:visibility="gone"
             app:layout_constraintStart_toEndOf="@+id/detail_movie_iv_rating"
-            app:layout_constraintTop_toBottomOf="@+id/detail_movie_tv_title" />
+            app:layout_constraintTop_toBottomOf="@+id/linear_layout_movie" />
 
         <TextView
             android:id="@+id/detail_movie_tv_release_date"

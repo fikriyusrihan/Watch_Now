@@ -10,6 +10,9 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class Movie(
     @PrimaryKey(autoGenerate = false)
+    @ColumnInfo(name = "id")
+    var id: String = "",
+
     @ColumnInfo(name = "imgUrl")
     var imageUrl: String = "",
 

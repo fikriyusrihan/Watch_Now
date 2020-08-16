@@ -10,7 +10,10 @@ import com.artwork.space.watchnow.data.source.remote.RemoteDataSource
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
-class ApplicationRepository(private val remoteDataSource: RemoteDataSource, application: Application) {
+class ApplicationRepository(
+    private val remoteDataSource: RemoteDataSource,
+    application: Application
+) {
     private val movieFavoriteDao: MovieFavoriteDao
     private val executorService: ExecutorService = Executors.newSingleThreadExecutor()
 
@@ -33,5 +36,9 @@ class ApplicationRepository(private val remoteDataSource: RemoteDataSource, appl
 
     fun deleteFavoriteMovie(movie: Movie) {
         executorService.execute { movieFavoriteDao.delete(movie) }
+    }
+
+    fun addToDatabase(movie: Movie) {
+        executorService.execute { movieFavoriteDao.insert(movie) }
     }
 }

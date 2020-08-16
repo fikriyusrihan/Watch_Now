@@ -36,7 +36,7 @@ class ViewModelFactory private constructor(private val applicationRepository: Ap
                 FavoriteFragmentViewModel(applicationRepository) as T
             }
             modelClass.isAssignableFrom(DetailMovieViewModel::class.java) -> {
-                DetailMovieViewModel() as T
+                DetailMovieViewModel(applicationRepository) as T
             }
             modelClass.isAssignableFrom(DetailTVShowViewModel::class.java) -> {
                 DetailTVShowViewModel() as T
