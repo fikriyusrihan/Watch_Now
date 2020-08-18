@@ -1,8 +1,8 @@
 package com.artwork.space.watchnow.data.source
 
-import android.app.Application
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
+import com.artwork.space.watchnow.data.source.local.LocalDataSource
 import com.artwork.space.watchnow.data.source.local.entity.Movie
 import com.artwork.space.watchnow.data.source.local.entity.TVShow
 import com.artwork.space.watchnow.data.source.remote.RemoteDataSource
@@ -13,13 +13,13 @@ import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.Mockito.`when`
 
 class ApplicationRepositoryTest {
 
     private val remoteDataSource = Mockito.mock(RemoteDataSource::class.java)
+    private val localDataSource = Mockito.mock(LocalDataSource::class.java)
     private val moviesResponse = DataDummy.generateDummyMovie()
     private val tvShowsResponse = DataDummy.generateDummyTvShow()
 
@@ -28,13 +28,10 @@ class ApplicationRepositoryTest {
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
-    @Mock
-    private lateinit var application : Application
 
     @Before
     fun setUp() {
-        application = Application()
-        applicationRepository = ApplicationRepository(remoteDataSource, application)
+        applicationRepository = ApplicationRepository(remoteDataSource, localDataSource)
     }
 
     @Test
@@ -63,6 +60,34 @@ class ApplicationRepositoryTest {
 
         assertNotNull(tvShowEntities)
         assertEquals(tvShowsResponse.size.toLong(), tvShowEntities?.size?.toLong())
+    }
+
+    @Test
+    fun getAllFavoriteMovie() {
+        val dummyMovie = DataDummy.generateDummyMovie()
+        val movies = MutableLiveData<List<Movie>>()
+        movies.value = dummyMovie
+
+        `when`(localDataSource.getAllFavoriteMovie()).thenReturn(movies)
+        val favoriteMovieEntities = applicationRepository.getAllFavoriteMovie().value
+        verify(localDataSource).getAllFavoriteMovie()
+
+        assertNotNull(favoriteMovieEntities)
+        assertEquals(moviesResponse.size.toLong(), favoriteMovieEntities?.size?.toLong())
+    }
+
+    @Test
+    fun getAllFavoriteTVShow() {
+        val dummyTVShows = DataDummy.generateDummyTvShow()
+        val tvShows = MutableLiveData<List<TVShow>>()
+        tvShows.value = dummyTVShows
+
+        `when`(localDataSource.getAllFavoriteTVShow()).thenReturn(tvShows)
+        val favoriteTVShowEntities = applicationRepository.getAllFavoriteTVShow().value
+        verify(localDataSource).getAllFavoriteTVShow()
+
+        assertNotNull(favoriteTVShowEntities)
+        assertEquals(tvShowsResponse.size.toLong(), favoriteTVShowEntities?.size?.toLong())
     }
 
 }

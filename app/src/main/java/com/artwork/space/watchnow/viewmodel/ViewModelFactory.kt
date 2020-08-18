@@ -1,6 +1,6 @@
 package com.artwork.space.watchnow.viewmodel
 
-import android.app.Application
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.artwork.space.watchnow.data.source.ApplicationRepository
@@ -17,9 +17,9 @@ class ViewModelFactory private constructor(private val applicationRepository: Ap
         @Volatile
         private var instance: ViewModelFactory? = null
 
-        fun getInstance(application: Application): ViewModelFactory =
+        fun getInstance(context: Context): ViewModelFactory =
             instance ?: synchronized(this) {
-                instance ?: ViewModelFactory(Injection.provideRepository(application))
+                instance ?: ViewModelFactory(Injection.provideRepository(context))
             }
     }
 

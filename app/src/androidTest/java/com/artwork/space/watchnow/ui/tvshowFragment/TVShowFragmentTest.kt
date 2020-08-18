@@ -59,6 +59,7 @@ class TVShowFragmentTest {
         onView(withId(R.id.detail_tv_tv_title)).check(matches(isDisplayed()))
         onView(withId(R.id.detail_tv_tv_release_date)).check(matches(isDisplayed()))
         onView(withId(R.id.detail_tv_tv_description)).check(matches(isDisplayed()))
+        onView(withId(R.id.detail_tv_btn_favorite)).check(matches(isDisplayed()))
         onView(withId(R.id.detail_tv_btn_back)).check(matches(isDisplayed()))
         onView(withId(R.id.detail_tv_iv_poster)).check(matches(isDisplayed()))
         onView(withId(R.id.detail_tv_iv_rating)).check(matches(isDisplayed()))

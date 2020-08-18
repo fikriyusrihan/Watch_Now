@@ -33,7 +33,8 @@ class FavoriteFragment : Fragment() {
             val factory = ViewModelFactory.getInstance(requireActivity().application)
             val viewModel = ViewModelProvider(this, factory)[FavoriteFragmentViewModel::class.java]
 
-            //EspressoIdlingResource.increment()
+            // Active Espresso Idling Resource when do testing
+            // EspressoIdlingResource.increment()
             viewModel.getAllFavoriteMovie().observe(viewLifecycleOwner, Observer { movies ->
                 movieFavoriteAdapter.setMovies(movies)
                 movieFavoriteAdapter.notifyDataSetChanged()
@@ -58,9 +59,20 @@ class FavoriteFragment : Fragment() {
                 adapter = movieFavoriteAdapter
             }
 
+            // Active Espresso Idling Resource when do testing
+            // EspressoIdlingResource.increment()
             viewModel.getAllFavoriteTVShow().observe(viewLifecycleOwner, Observer { tvShows ->
                 tvShowFavoriteAdapter.setTVShows(tvShows)
                 tvShowFavoriteAdapter.notifyDataSetChanged()
+
+                if (tvShows.isEmpty()) {
+                    favorite_tv_message_no_tv.visibility = View.VISIBLE
+                    favorite_recycler_view_tv_show.visibility = View.INVISIBLE
+                } else {
+                    favorite_tv_message_no_tv.visibility = View.INVISIBLE
+                    favorite_recycler_view_tv_show.visibility = View.VISIBLE
+                }
+                //EspressoIdlingResource.decrement()
             })
 
             with(favorite_recycler_view_tv_show) {
