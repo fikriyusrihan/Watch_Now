@@ -12,7 +12,7 @@ import com.artwork.space.watchnow.ui.movieFragment.MovieAdapter
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.card_layout.view.*
 
-class FavoriteAdapter : RecyclerView.Adapter<FavoriteAdapter.FavoriteViewHolder>() {
+class MovieFavoriteAdapter : RecyclerView.Adapter<MovieFavoriteAdapter.FavoriteViewHolder>() {
 
     private var listMovies = ArrayList<Movie>()
 

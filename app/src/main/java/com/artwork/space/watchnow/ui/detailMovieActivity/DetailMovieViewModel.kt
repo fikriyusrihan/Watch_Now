@@ -22,7 +22,7 @@ class DetailMovieViewModel(private val applicationRepository: ApplicationReposit
     }
 
     fun addToDatabase(movie: Movie) {
-        applicationRepository.addToDatabase(movie)
+        applicationRepository.addMovieToDatabase(movie)
     }
 
     fun deleteFromDatabase(movie: Movie) {

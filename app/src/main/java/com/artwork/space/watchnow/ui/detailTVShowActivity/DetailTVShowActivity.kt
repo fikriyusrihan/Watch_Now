@@ -1,6 +1,8 @@
 package com.artwork.space.watchnow.ui.detailTVShowActivity
 
+import android.content.Context
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -22,9 +24,11 @@ class DetailTVShowActivity : AppCompatActivity() {
         )[DetailTVShowViewModel::class.java]
 
         viewModel.getTVShow(intent).observe(this, Observer { entity ->
+            val sharedPreferences = getSharedPreferences(entity.id, Context.MODE_PRIVATE)
             val imageUrl = "https://image.tmdb.org/t/p/w500" + entity.imageUrl
             val rating = entity.rating.toFloat() / 2
 
+            detail_tv_btn_favorite.isChecked = sharedPreferences.getBoolean(entity.id, false)
             detail_tv_tv_title.text = entity.title
             detail_tv_tv_popularity.text = entity.popularity
             detail_tv_tv_description.text = entity.description
@@ -39,6 +43,18 @@ class DetailTVShowActivity : AppCompatActivity() {
             Glide.with(this)
                 .load(ratingSelected(rating.toInt()))
                 .into(detail_tv_iv_rating)
+
+            detail_tv_btn_favorite.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    Toast.makeText(this, "Saved as Favorite", Toast.LENGTH_SHORT).show()
+                    sharedPreferences.edit().putBoolean(entity.id, true).apply()
+                    viewModel.addToDatabase(entity)
+                } else {
+                    sharedPreferences.edit().putBoolean(entity.id, false).apply()
+                    Toast.makeText(this, "Deleted from Favorite", Toast.LENGTH_SHORT).show()
+                    viewModel.deleteFromDatabase(entity)
+                }
+            }
         })
 
         detail_tv_btn_back.setOnClickListener { finish() }

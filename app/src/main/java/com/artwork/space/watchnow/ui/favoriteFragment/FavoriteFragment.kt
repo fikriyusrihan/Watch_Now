@@ -1,15 +1,14 @@
 package com.artwork.space.watchnow.ui.favoriteFragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.artwork.space.watchnow.R
-import com.artwork.space.watchnow.utils.EspressoIdlingResource
 import com.artwork.space.watchnow.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.fragment_favorite.*
 
@@ -28,22 +27,50 @@ class FavoriteFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         if (activity != null) {
-            val favoriteAdapter = FavoriteAdapter()
+            val movieFavoriteAdapter = MovieFavoriteAdapter()
+            val tvShowFavoriteAdapter = TVShowFavoriteAdapter()
 
             val factory = ViewModelFactory.getInstance(requireActivity().application)
             val viewModel = ViewModelProvider(this, factory)[FavoriteFragmentViewModel::class.java]
 
             //EspressoIdlingResource.increment()
             viewModel.getAllFavoriteMovie().observe(viewLifecycleOwner, Observer { movies ->
-                favoriteAdapter.setMovies(movies)
-                favoriteAdapter.notifyDataSetChanged()
+                movieFavoriteAdapter.setMovies(movies)
+                movieFavoriteAdapter.notifyDataSetChanged()
+
+                if (movies.isEmpty()) {
+                    favorite_tv_message_no_movie.visibility = View.VISIBLE
+                    favorite_recycler_view_movie.visibility = View.INVISIBLE
+                } else {
+                    favorite_tv_message_no_movie.visibility = View.INVISIBLE
+                    favorite_recycler_view_movie.visibility = View.VISIBLE
+                }
                 //EspressoIdlingResource.decrement()
             })
 
-            with(favorite_recycler_view) {
-                layoutManager = LinearLayoutManager(context)
+            with(favorite_recycler_view_movie) {
+                layoutManager = object : LinearLayoutManager(context) {
+                    override fun canScrollVertically(): Boolean {
+                        return false
+                    }
+                }
                 setHasFixedSize(true)
-                adapter = favoriteAdapter
+                adapter = movieFavoriteAdapter
+            }
+
+            viewModel.getAllFavoriteTVShow().observe(viewLifecycleOwner, Observer { tvShows ->
+                tvShowFavoriteAdapter.setTVShows(tvShows)
+                tvShowFavoriteAdapter.notifyDataSetChanged()
+            })
+
+            with(favorite_recycler_view_tv_show) {
+                layoutManager = object : LinearLayoutManager(context) {
+                    override fun canScrollVertically(): Boolean {
+                        return false
+                    }
+                }
+                setHasFixedSize(true)
+                adapter = tvShowFavoriteAdapter
             }
         }
     }

@@ -102,6 +102,7 @@ class RemoteDataSource {
                     for (i in 0 until jsonArray.length()) {
                         val jsonObject = jsonArray.getJSONObject(i)
 
+                        val id = jsonObject.getString("id")
                         val imgUrl = jsonObject.getString("poster_path")
                         val title = jsonObject.getString("name")
                         val description = jsonObject.getString("overview")
@@ -111,6 +112,7 @@ class RemoteDataSource {
 
                         tvShows.add(
                             TVShow(
+                                id,
                                 imgUrl,
                                 title,
                                 description,

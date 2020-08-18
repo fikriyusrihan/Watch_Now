@@ -7,22 +7,20 @@ import com.artwork.space.watchnow.data.source.ApplicationRepository
 import com.artwork.space.watchnow.data.source.local.entity.Movie
 import com.artwork.space.watchnow.utils.DataDummy
 import com.nhaarman.mockitokotlin2.verify
-import org.junit.Test
-
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotNull
 import org.junit.Before
 import org.junit.Rule
+import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
 import org.mockito.junit.MockitoJUnitRunner
-import java.util.*
-import kotlin.collections.ArrayList
 
 @RunWith(MockitoJUnitRunner::class)
 class MovieViewModelTest {
 
-    private lateinit var  viewModel: MovieViewModel
+    private lateinit var viewModel: MovieViewModel
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()

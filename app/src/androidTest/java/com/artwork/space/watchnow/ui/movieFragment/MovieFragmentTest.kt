@@ -10,7 +10,6 @@ import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.rule.ActivityTestRule
 import com.artwork.space.watchnow.R
-import com.artwork.space.watchnow.utils.DataDummy
 import com.artwork.space.watchnow.utils.EspressoIdlingResource
 import com.builder.watch.testing.SingleFragmentActivity
 import org.junit.After

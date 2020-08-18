@@ -6,12 +6,10 @@ import androidx.test.espresso.IdlingRegistry
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
-import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.rule.ActivityTestRule
 import com.artwork.space.watchnow.R
-import com.artwork.space.watchnow.utils.DataDummy
 import com.artwork.space.watchnow.utils.EspressoIdlingResource
 import com.builder.watch.testing.SingleFragmentActivity
 import org.junit.After

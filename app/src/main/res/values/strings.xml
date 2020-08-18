@@ -2,7 +2,6 @@
     <string name="app_name">Watch Now</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
     <string name="tv_shows">TV Shows</string>
     <string name="movies">Movies</string>
     <string name="popular_movies">Popular Movies</string>
@@ -16,4 +15,9 @@
     <string name="back_button">Back Button</string>
     <string name="transparent_to_white_gradient">Transparent to white gradient</string>
     <string name="favorite">Favorite</string>
+    <string name="your_favorite_movie">Your Favorite Movie</string>
+    <string name="your_favorite_tv_show">Your Favorite TV Show</string>
+    <string name="favorite_movie">Favorite Movie</string>
+    <string name="favorite_tv_show">Favorite TV Show</string>
+    <string name="you_haven_t_added_anything_yet">You haven\'t added anything yet</string>
 </resources>

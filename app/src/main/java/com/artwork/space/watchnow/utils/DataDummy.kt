@@ -134,6 +134,7 @@ object DataDummy {
         val listTvShow = ArrayList<TVShow>()
         listTvShow.add(
             TVShow(
+                "1",
                 "/gKG5QGz5Ngf8fgWpBsWtlg5L2SF.jpg",
                 "Arrow",
                 "Spoiled billionaire playboy Oliver Queen is missing and presumed dead when his yacht is lost at sea. He returns five years later a changed man, determined to clean up the city as a hooded vigilante armed with a bow.",
@@ -145,6 +146,7 @@ object DataDummy {
 
         listTvShow.add(
             TVShow(
+                "2",
                 "/ff1zhqvwfS5HvRNcA5UFrH0PA2q.jpg",
                 "Vikings",
                 "The adventures of Ragnar Lothbrok, the greatest hero of his age. The series tells the sagas of Ragnar's band of Viking brothers and his family, as he rises to become King of the Viking tribes. As well as being a fearless warrior, Ragnar embodies the Norse traditions of devotion to the gods. Legend has it that he was a direct descendant of Odin, the god of war and warriors.",
@@ -155,6 +157,7 @@ object DataDummy {
         )
         listTvShow.add(
             TVShow(
+                "3",
                 "/gHUCCMy1vvj58tzE3dZqeC9SXus.jpg",
                 "Marvel's Agents of S.H.I.E.L.D.",
                 "Agent Phil Coulson of S.H.I.E.L.D. (Strategic Homeland Intervention, Enforcement and Logistics Division) puts together a team of agents to investigate the new, the strange and the unknown around the globe, protecting the ordinary from the extraordinary.",
@@ -165,6 +168,7 @@ object DataDummy {
         )
         listTvShow.add(
             TVShow(
+                "4",
                 "/6t6r1VGQTTQecN4V0sZeqsmdU9g.jpg",
                 "Law & Order: Special Victims Unit",
                 "In the criminal justice system, sexually-based offenses are considered especially heinous. In New York City, the dedicated detectives who investigate these vicious felonies are members of an elite squad known as the Special Victims Unit. These are their stories.",
@@ -175,6 +179,7 @@ object DataDummy {
         )
         listTvShow.add(
             TVShow(
+                "5",
                 "/KoYWXbnYuS3b0GyQPkbuexlVK9.jpg",
                 "Supernatural",
                 "When they were boys, Sam and Dean Winchester lost their mother to a mysterious and demonic supernatural force. Subsequently, their father raised them to be soldiers. He taught them about the paranormal evil that lives in the dark corners and on the back roads of America ... and he taught them how to kill it. Now, the Winchester brothers crisscross the country in their '67 Chevy Impala, battling every kind of supernatural threat they encounter along the way.",
@@ -185,6 +190,7 @@ object DataDummy {
         )
         listTvShow.add(
             TVShow(
+                "6",
                 "/wcaDIAG1QdXQLRaj4vC1EFdBT2.jpg",
                 "The 100",
                 "100 years in the future, when the Earth has been abandoned due to radioactivity, the last surviving humans live on an ark orbiting the planet — but the ark won't last forever. So the repressive regime picks 100 expendable juvenile delinquents to send down to Earth to see if the planet is still habitable.",
@@ -195,6 +201,7 @@ object DataDummy {
         )
         listTvShow.add(
             TVShow(
+                "7",
                 "/mg2fUxfH3ktaWqbSq4oL3g3yyCm.jpg",
                 "True Cooking Master Boy",
                 "After the death of Mao's mother - Pai - who was called the Goddess of Cuisine, Mao wants to be the Master Chef of his mother's restaurant. However, before Mao takes his mother's place as Master Chef, he travels to China in order to learn more of the many ways of cooking, in the hopes of becoming a legendary chef just like his mother.",
@@ -205,6 +212,7 @@ object DataDummy {
         )
         listTvShow.add(
             TVShow(
+                "8",
                 "/wHa6KOJAoNTFLFtp7wguUJKSnju.jpg",
                 "The Flash",
                 "After a particle accelerator causes a freak storm, CSI Investigator Barry Allen is struck by lightning and falls into a coma. Months later he awakens with the power of super speed, granting him the ability to move through Central City like an unseen guardian angel. Though initially excited by his newfound powers, Barry is shocked to discover he is not the only \"meta-human\" who was created in the wake of the accelerator explosion -- and not everyone is using their new powers for good. Barry partners with S.T.A.R. Labs and dedicates his life to protect the innocent. For now, only a few close friends and associates know that Barry is literally the fastest man alive, but it won't be long before the world learns what Barry Allen has become...The Flash.",
@@ -215,6 +223,7 @@ object DataDummy {
         )
         listTvShow.add(
             TVShow(
+                "9",
                 "/cDDb7WA2i7cENhkEEjXEDrXGyNL.jpg",
                 "Doctor Who",
                 "The Doctor is a Time Lord: a 900 year old alien with 2 hearts, part of a gifted civilization who mastered time travel. The Doctor saves planets for a living—more of a hobby actually, and the Doctor's very, very good at it.",
@@ -225,6 +234,7 @@ object DataDummy {
         )
         listTvShow.add(
             TVShow(
+                "10",
                 "/BbNvKCuEF4SRzFXR16aK6ISFtR.jpg",
                 "The Mandalorian",
                 "The Doctor is a Time Lord: a 900 year old alien with 2 hearts, part of a gifted civilization who mastered time travel. The Doctor saves planets for a living—more of a hobby actually, and the Doctor's very, very good at it.",

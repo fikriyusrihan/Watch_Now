@@ -39,7 +39,7 @@ class ViewModelFactory private constructor(private val applicationRepository: Ap
                 DetailMovieViewModel(applicationRepository) as T
             }
             modelClass.isAssignableFrom(DetailTVShowViewModel::class.java) -> {
-                DetailTVShowViewModel() as T
+                DetailTVShowViewModel(applicationRepository) as T
             }
             else -> throw Throwable("Unknown ViewModel class ${modelClass.name}")
         }
