@@ -40,7 +40,7 @@ class ApplicationRepositoryTest {
     }
 
     @Test
-    fun getAllMovies() {
+    fun getAllPopularMovieFromRemote() {
         val dummyMovie = DataDummy.generateDummyMovie()
         val movies = MutableLiveData<List<Movie>>()
         movies.value = dummyMovie
@@ -54,7 +54,7 @@ class ApplicationRepositoryTest {
     }
 
     @Test
-    fun getAllTVShow() {
+    fun getAllPopularTVShowFromRemote() {
         val dummyTVShow = DataDummy.generateDummyTvShow()
         val tvShows = MutableLiveData<List<TVShow>>()
         tvShows.value = dummyTVShow
