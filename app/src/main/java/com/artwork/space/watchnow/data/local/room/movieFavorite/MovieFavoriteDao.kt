@@ -1,8 +1,8 @@
-package com.artwork.space.watchnow.data.source.local.room.movieFavorite
+package com.artwork.space.watchnow.data.local.room.movieFavorite
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.artwork.space.watchnow.data.source.local.entity.Movie
+import com.artwork.space.watchnow.data.local.entity.Movie
 
 @Dao
 interface MovieFavoriteDao {

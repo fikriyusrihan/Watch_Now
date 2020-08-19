@@ -1,10 +1,10 @@
-package com.artwork.space.watchnow.data.source.remote
+package com.artwork.space.watchnow.data.remote
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.artwork.space.watchnow.data.source.local.entity.Movie
-import com.artwork.space.watchnow.data.source.local.entity.TVShow
+import com.artwork.space.watchnow.data.local.entity.Movie
+import com.artwork.space.watchnow.data.local.entity.TVShow
 import com.artwork.space.watchnow.utils.EspressoIdlingResource
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
@@ -12,8 +12,8 @@ import cz.msebera.android.httpclient.Header
 import org.json.JSONObject
 
 class RemoteDataSource {
-    private val moviesList = MutableLiveData<ArrayList<Movie>>()
-    private val tvShowsList = MutableLiveData<ArrayList<TVShow>>()
+    private val moviesList = MutableLiveData<List<Movie>>()
+    private val tvShowsList = MutableLiveData<List<TVShow>>()
 
     companion object {
         const val TAG = "RemoteDataSource"
@@ -143,14 +143,14 @@ class RemoteDataSource {
         EspressoIdlingResource.decrement()
     }
 
-    fun getAllMovies(): LiveData<ArrayList<Movie>> {
+    fun getAllMovies(): LiveData<List<Movie>> {
         EspressoIdlingResource.increment()
         setAllMovies()
         EspressoIdlingResource.decrement()
         return moviesList
     }
 
-    fun getAllTVShow(): LiveData<ArrayList<TVShow>> {
+    fun getAllTVShow(): LiveData<List<TVShow>> {
         EspressoIdlingResource.increment()
         setAllTVShow()
         EspressoIdlingResource.decrement()

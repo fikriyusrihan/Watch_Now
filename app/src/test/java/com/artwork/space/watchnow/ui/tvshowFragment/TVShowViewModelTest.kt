@@ -3,9 +3,10 @@ package com.artwork.space.watchnow.ui.tvshowFragment
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.artwork.space.watchnow.data.source.ApplicationRepository
-import com.artwork.space.watchnow.data.source.local.entity.TVShow
+import com.artwork.space.watchnow.data.ApplicationRepository
+import com.artwork.space.watchnow.data.local.entity.TVShow
 import com.artwork.space.watchnow.utils.DataDummy
+import com.nhaarman.mockitokotlin2.atLeast
 import com.nhaarman.mockitokotlin2.verify
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
@@ -37,19 +38,19 @@ class TVShowViewModelTest {
     }
 
     @Test
-    fun getTVShows() {
+    fun getPopularTVShowFromRemote() {
         val dummyTVShow = DataDummy.generateDummyTvShow()
-        val tvShows = MutableLiveData<ArrayList<TVShow>>()
+        val tvShows = MutableLiveData<List<TVShow>>()
         tvShows.value = dummyTVShow
 
-        Mockito.`when`(applicationRepository.getAllTVShow()).thenReturn(tvShows)
-        val tvShowEntities = viewModel.getAllTVShows().value
-        verify(applicationRepository).getAllTVShow()
+        Mockito.`when`(applicationRepository.getAllPopularTVShowFromRemote()).thenReturn(tvShows)
+        val tvShowEntities = viewModel.getPopularTVShowFromRemote().value
+        verify(applicationRepository, atLeast(2)).getAllPopularTVShowFromRemote()
 
         assertNotNull(tvShowEntities)
         assertEquals(10, tvShowEntities?.size)
 
-        viewModel.getAllTVShows().observeForever(observer)
+        viewModel.getPopularTVShowFromRemote().observeForever(observer)
         verify(observer).onChanged(dummyTVShow)
 
     }

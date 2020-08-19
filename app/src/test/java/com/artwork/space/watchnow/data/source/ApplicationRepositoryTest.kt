@@ -2,10 +2,11 @@ package com.artwork.space.watchnow.data.source
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
-import com.artwork.space.watchnow.data.source.local.LocalDataSource
-import com.artwork.space.watchnow.data.source.local.entity.Movie
-import com.artwork.space.watchnow.data.source.local.entity.TVShow
-import com.artwork.space.watchnow.data.source.remote.RemoteDataSource
+import com.artwork.space.watchnow.data.ApplicationRepository
+import com.artwork.space.watchnow.data.local.LocalDataSource
+import com.artwork.space.watchnow.data.local.entity.Movie
+import com.artwork.space.watchnow.data.local.entity.TVShow
+import com.artwork.space.watchnow.data.remote.RemoteDataSource
 import com.artwork.space.watchnow.utils.DataDummy
 import com.nhaarman.mockitokotlin2.verify
 import org.junit.Assert.assertEquals
@@ -31,17 +32,21 @@ class ApplicationRepositoryTest {
 
     @Before
     fun setUp() {
-        applicationRepository = ApplicationRepository(remoteDataSource, localDataSource)
+        applicationRepository =
+            ApplicationRepository(
+                remoteDataSource,
+                localDataSource
+            )
     }
 
     @Test
     fun getAllMovies() {
         val dummyMovie = DataDummy.generateDummyMovie()
-        val movies = MutableLiveData<ArrayList<Movie>>()
+        val movies = MutableLiveData<List<Movie>>()
         movies.value = dummyMovie
 
         `when`(remoteDataSource.getAllMovies()).thenReturn(movies)
-        val movieEntities = applicationRepository.getAllMovie().value
+        val movieEntities = applicationRepository.getAllPopularMovieFromRemote().value
         verify(remoteDataSource).getAllMovies()
 
         assertNotNull(movieEntities)
@@ -51,11 +56,11 @@ class ApplicationRepositoryTest {
     @Test
     fun getAllTVShow() {
         val dummyTVShow = DataDummy.generateDummyTvShow()
-        val tvShows = MutableLiveData<ArrayList<TVShow>>()
+        val tvShows = MutableLiveData<List<TVShow>>()
         tvShows.value = dummyTVShow
 
         `when`(remoteDataSource.getAllTVShow()).thenReturn(tvShows)
-        val tvShowEntities = applicationRepository.getAllTVShow().value
+        val tvShowEntities = applicationRepository.getAllPopularTVShowFromRemote().value
         verify(remoteDataSource).getAllTVShow()
 
         assertNotNull(tvShowEntities)

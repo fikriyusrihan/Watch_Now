@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.artwork.space.watchnow.R
-import com.artwork.space.watchnow.data.source.local.entity.Movie
+import com.artwork.space.watchnow.data.local.entity.Movie
 import com.artwork.space.watchnow.ui.detailMovieActivity.DetailMovieActivity
 import com.artwork.space.watchnow.ui.movieFragment.MovieAdapter
 import com.bumptech.glide.Glide

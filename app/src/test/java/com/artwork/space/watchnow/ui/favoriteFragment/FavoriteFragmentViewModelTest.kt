@@ -3,9 +3,9 @@ package com.artwork.space.watchnow.ui.favoriteFragment
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.artwork.space.watchnow.data.source.ApplicationRepository
-import com.artwork.space.watchnow.data.source.local.entity.Movie
-import com.artwork.space.watchnow.data.source.local.entity.TVShow
+import com.artwork.space.watchnow.data.ApplicationRepository
+import com.artwork.space.watchnow.data.local.entity.Movie
+import com.artwork.space.watchnow.data.local.entity.TVShow
 import com.artwork.space.watchnow.utils.DataDummy
 import com.nhaarman.mockitokotlin2.verify
 import org.junit.Assert.assertEquals

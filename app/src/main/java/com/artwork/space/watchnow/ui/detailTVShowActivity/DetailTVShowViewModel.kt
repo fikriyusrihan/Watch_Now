@@ -4,8 +4,8 @@ import android.content.Intent
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.artwork.space.watchnow.data.source.ApplicationRepository
-import com.artwork.space.watchnow.data.source.local.entity.TVShow
+import com.artwork.space.watchnow.data.ApplicationRepository
+import com.artwork.space.watchnow.data.local.entity.TVShow
 import com.artwork.space.watchnow.ui.tvshowFragment.TVShowAdapter.Companion.EXTRA_DATA_TV
 
 class DetailTVShowViewModel(private val applicationRepository: ApplicationRepository) :

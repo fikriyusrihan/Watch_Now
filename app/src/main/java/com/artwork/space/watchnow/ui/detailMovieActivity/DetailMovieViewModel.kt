@@ -4,8 +4,8 @@ import android.content.Intent
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.artwork.space.watchnow.data.source.ApplicationRepository
-import com.artwork.space.watchnow.data.source.local.entity.Movie
+import com.artwork.space.watchnow.data.ApplicationRepository
+import com.artwork.space.watchnow.data.local.entity.Movie
 import com.artwork.space.watchnow.ui.movieFragment.MovieAdapter.Companion.EXTRA_DATA
 
 class DetailMovieViewModel(private val applicationRepository: ApplicationRepository) : ViewModel() {

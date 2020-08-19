@@ -3,9 +3,10 @@ package com.artwork.space.watchnow.ui.movieFragment
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.artwork.space.watchnow.data.source.ApplicationRepository
-import com.artwork.space.watchnow.data.source.local.entity.Movie
+import com.artwork.space.watchnow.data.ApplicationRepository
+import com.artwork.space.watchnow.data.local.entity.Movie
 import com.artwork.space.watchnow.utils.DataDummy
+import com.nhaarman.mockitokotlin2.atLeast
 import com.nhaarman.mockitokotlin2.verify
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
@@ -37,19 +38,19 @@ class MovieViewModelTest {
     }
 
     @Test
-    fun getMovies() {
+    fun getPopularMovieFromRemote() {
         val dummyMovies = DataDummy.generateDummyMovie()
-        val movies = MutableLiveData<ArrayList<Movie>>()
+        val movies = MutableLiveData<List<Movie>>()
         movies.value = dummyMovies
 
-        `when`(applicationRepository.getAllMovie()).thenReturn(movies)
-        val movieEntities = viewModel.getAllMovies().value
-        verify(applicationRepository).getAllMovie()
+        `when`(applicationRepository.getAllPopularMovieFromRemote()).thenReturn(movies)
+        val movieEntities = viewModel.getPopularMovieFromRemote().value
+        verify(applicationRepository, atLeast(2)).getAllPopularMovieFromRemote()
 
         assertNotNull(movieEntities)
         assertEquals(10, movieEntities?.size)
 
-        viewModel.getAllMovies().observeForever(observer)
+        viewModel.getPopularMovieFromRemote().observeForever(observer)
         verify(observer).onChanged(dummyMovies)
     }
 }

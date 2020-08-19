@@ -1,7 +1,7 @@
 package com.artwork.space.watchnow.utils
 
-import com.artwork.space.watchnow.data.source.local.entity.Movie
-import com.artwork.space.watchnow.data.source.local.entity.TVShow
+import com.artwork.space.watchnow.data.local.entity.Movie
+import com.artwork.space.watchnow.data.local.entity.TVShow
 
 object DataDummy {
     fun generateDummyMovie(): ArrayList<Movie> {

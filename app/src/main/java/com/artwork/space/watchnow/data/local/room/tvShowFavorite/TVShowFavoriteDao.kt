@@ -1,8 +1,8 @@
-package com.artwork.space.watchnow.data.source.local.room.tvShowFavorite
+package com.artwork.space.watchnow.data.local.room.tvShowFavorite
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.artwork.space.watchnow.data.source.local.entity.TVShow
+import com.artwork.space.watchnow.data.local.entity.TVShow
 
 @Dao
 interface TVShowFavoriteDao {

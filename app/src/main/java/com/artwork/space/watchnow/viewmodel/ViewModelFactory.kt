@@ -3,7 +3,7 @@ package com.artwork.space.watchnow.viewmodel
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.artwork.space.watchnow.data.source.ApplicationRepository
+import com.artwork.space.watchnow.data.ApplicationRepository
 import com.artwork.space.watchnow.di.Injection
 import com.artwork.space.watchnow.ui.detailMovieActivity.DetailMovieViewModel
 import com.artwork.space.watchnow.ui.detailTVShowActivity.DetailTVShowViewModel

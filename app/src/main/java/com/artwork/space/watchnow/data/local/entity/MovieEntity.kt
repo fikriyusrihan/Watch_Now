@@ -1,4 +1,4 @@
-package com.artwork.space.watchnow.data.source.local.entity
+package com.artwork.space.watchnow.data.local.entity
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo
@@ -8,7 +8,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Entity
 @Parcelize
-data class TVShow(
+data class Movie(
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = "id")
     var id: String = "",
