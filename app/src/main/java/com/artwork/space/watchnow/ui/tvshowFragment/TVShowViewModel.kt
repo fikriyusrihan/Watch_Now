@@ -11,7 +11,7 @@ class TVShowViewModel(private val applicationRepository: ApplicationRepository) 
 
     val popularTVShows = applicationRepository.getAllPopularTVShow()
 
-    private var _isNetworkAvailable = MutableLiveData<Boolean>(false)
+    private var _isNetworkAvailable = MutableLiveData<Boolean>(true)
 
     val isNetworkAvailable: LiveData<Boolean>
         get() =_isNetworkAvailable

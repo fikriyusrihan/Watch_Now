@@ -10,7 +10,7 @@ import java.io.IOException
 class MovieViewModel(private val applicationRepository: ApplicationRepository) : ViewModel() {
     val popularMovies = applicationRepository.getAllPopularMovie()
 
-    private var _isNetworkAvailable = MutableLiveData<Boolean>(false)
+    private var _isNetworkAvailable = MutableLiveData<Boolean>(true)
 
     val isNetworkAvailable: LiveData<Boolean>
         get() = _isNetworkAvailable
