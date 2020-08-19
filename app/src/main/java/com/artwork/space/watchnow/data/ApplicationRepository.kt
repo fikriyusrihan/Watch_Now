@@ -1,6 +1,8 @@
 package com.artwork.space.watchnow.data
 
 import androidx.lifecycle.LiveData
+import androidx.paging.LivePagedListBuilder
+import androidx.paging.PagedList
 import com.artwork.space.watchnow.data.local.LocalDataSource
 import com.artwork.space.watchnow.data.local.entity.Movie
 import com.artwork.space.watchnow.data.local.entity.TVShow
@@ -18,16 +20,26 @@ class ApplicationRepository(
         executorService.execute { localDataSource.updateAllPopularMovie(movies) }
     }
 
-    fun getAllPopularMovie(): LiveData<List<Movie>> {
-        return localDataSource.getAllPopularMovie()
+    fun getAllPopularMovie(): LiveData<PagedList<Movie>> {
+        val config = PagedList.Config.Builder()
+            .setEnablePlaceholders(false)
+            .setInitialLoadSizeHint(8)
+            .setPageSize(8)
+            .build()
+        return LivePagedListBuilder(localDataSource.getAllPopularMovie(), config).build()
     }
 
     fun refreshPopularTVShow(tvShows: List<TVShow>) {
         executorService.execute { localDataSource.updateAllPopularTVShow(tvShows) }
     }
 
-    fun getAllPopularTVShow(): LiveData<List<TVShow>> {
-        return localDataSource.getAllPopularTVShow()
+    fun getAllPopularTVShow(): LiveData<PagedList<TVShow>> {
+        val config = PagedList.Config.Builder()
+            .setEnablePlaceholders(false)
+            .setInitialLoadSizeHint(8)
+            .setPageSize(8)
+            .build()
+        return LivePagedListBuilder(localDataSource.getAllPopularTVShow(), config).build()
     }
 
     // Remote Repository

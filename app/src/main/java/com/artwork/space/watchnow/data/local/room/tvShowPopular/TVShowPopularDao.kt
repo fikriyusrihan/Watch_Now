@@ -1,6 +1,6 @@
 package com.artwork.space.watchnow.data.local.room.tvShowPopular
 
-import androidx.lifecycle.LiveData
+import androidx.paging.DataSource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -13,7 +13,7 @@ interface TVShowPopularDao {
     fun deleteAllTVShow()
 
     @Query("SELECT * from tvshow")
-    fun getAllPopularTVShow(): LiveData<List<TVShow>>
+    fun getAllPopularTVShow(): DataSource.Factory<Int, TVShow>
 
     @Insert
     fun insertAllPopularTVShow(tvShows: List<TVShow>)

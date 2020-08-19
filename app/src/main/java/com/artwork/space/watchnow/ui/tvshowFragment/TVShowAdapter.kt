@@ -4,6 +4,8 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.paging.PagedListAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.artwork.space.watchnow.R
 import com.artwork.space.watchnow.data.local.entity.TVShow
@@ -11,17 +13,20 @@ import com.artwork.space.watchnow.ui.detailTVShowActivity.DetailTVShowActivity
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.card_layout.view.*
 
-class TVShowAdapter : RecyclerView.Adapter<TVShowAdapter.TVShowViewHolder>() {
-
-    private var listTVShow = ArrayList<TVShow>()
+class TVShowAdapter : PagedListAdapter<TVShow, TVShowAdapter.TVShowViewHolder>(DIFF_CALLBACK) {
 
     companion object {
         const val EXTRA_DATA_TV = "EXTRA_DATA_TV"
-    }
 
-    fun setTVShow(tvShows: List<TVShow>) {
-        listTVShow.clear()
-        listTVShow.addAll(tvShows)
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<TVShow>() {
+            override fun areItemsTheSame(oldItem: TVShow, newItem: TVShow): Boolean {
+                return oldItem.id == newItem.id
+            }
+
+            override fun areContentsTheSame(oldItem: TVShow, newItem: TVShow): Boolean {
+                return oldItem == newItem
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TVShowViewHolder {
@@ -29,11 +34,11 @@ class TVShowAdapter : RecyclerView.Adapter<TVShowAdapter.TVShowViewHolder>() {
         return TVShowViewHolder(view)
     }
 
-    override fun getItemCount(): Int = listTVShow.size
-
     override fun onBindViewHolder(holder: TVShowViewHolder, position: Int) {
-        val tvShow = listTVShow[position]
-        holder.bind(tvShow)
+        val tvShow = getItem(position)
+        if (tvShow != null) {
+            holder.bind(tvShow)
+        }
     }
 
     class TVShowViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

@@ -1,6 +1,7 @@
 package com.artwork.space.watchnow.data.local
 
 import androidx.lifecycle.LiveData
+import androidx.paging.DataSource
 import com.artwork.space.watchnow.data.local.entity.Movie
 import com.artwork.space.watchnow.data.local.entity.TVShow
 import com.artwork.space.watchnow.data.local.room.movieFavorite.MovieFavoriteDao
@@ -26,7 +27,7 @@ class LocalDataSource(
             INSTANCE ?: LocalDataSource(movieDao, tvshowDao, popularMovieDao, popularTVShowDao)
     }
 
-    fun getAllPopularMovie(): LiveData<List<Movie>> {
+    fun getAllPopularMovie(): DataSource.Factory<Int, Movie> {
         return popularMovieDao.getAllPopularMovies()
     }
 
@@ -36,7 +37,7 @@ class LocalDataSource(
         }
     }
 
-    fun getAllPopularTVShow(): LiveData<List<TVShow>> {
+    fun getAllPopularTVShow(): DataSource.Factory<Int, TVShow> {
         return popularTVShowDao.getAllPopularTVShow()
     }
 

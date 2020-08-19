@@ -28,7 +28,8 @@ class MovieViewModel(private val applicationRepository: ApplicationRepository) :
         }
     }
 
-    fun getPopularMovieFromRemote(): LiveData<List<Movie>> = applicationRepository.getAllPopularMovieFromRemote()
+    fun getPopularMovieFromRemote(): LiveData<List<Movie>> =
+        applicationRepository.getAllPopularMovieFromRemote()
 
     fun sendToDatabase(movies: List<Movie>) {
         applicationRepository.refreshPopularMovie(movies)

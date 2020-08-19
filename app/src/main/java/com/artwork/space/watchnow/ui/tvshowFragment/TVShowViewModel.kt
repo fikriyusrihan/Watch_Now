@@ -14,7 +14,7 @@ class TVShowViewModel(private val applicationRepository: ApplicationRepository) 
     private var _isNetworkAvailable = MutableLiveData<Boolean>(true)
 
     val isNetworkAvailable: LiveData<Boolean>
-        get() =_isNetworkAvailable
+        get() = _isNetworkAvailable
 
     init {
         refreshDataFromRepository()
@@ -29,7 +29,8 @@ class TVShowViewModel(private val applicationRepository: ApplicationRepository) 
         }
     }
 
-    fun getPopularTVShowFromRemote(): LiveData<List<TVShow>> = applicationRepository.getAllPopularTVShowFromRemote()
+    fun getPopularTVShowFromRemote(): LiveData<List<TVShow>> =
+        applicationRepository.getAllPopularTVShowFromRemote()
 
     fun sendToDatabase(tvShows: List<TVShow>) {
         applicationRepository.refreshPopularTVShow(tvShows)

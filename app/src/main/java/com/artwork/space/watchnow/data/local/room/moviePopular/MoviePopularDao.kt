@@ -1,6 +1,6 @@
 package com.artwork.space.watchnow.data.local.room.moviePopular
 
-import androidx.lifecycle.LiveData
+import androidx.paging.DataSource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -13,7 +13,7 @@ interface MoviePopularDao {
     fun deleteAllMovie()
 
     @Query("SELECT * from movie")
-    fun getAllPopularMovies(): LiveData<List<Movie>>
+    fun getAllPopularMovies(): DataSource.Factory<Int, Movie>
 
     @Insert
     fun insertAllPopularMovie(movies: List<Movie>)

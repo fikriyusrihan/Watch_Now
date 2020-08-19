@@ -4,6 +4,8 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.paging.PagedListAdapter
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.artwork.space.watchnow.R
 import com.artwork.space.watchnow.data.local.entity.Movie
@@ -11,17 +13,20 @@ import com.artwork.space.watchnow.ui.detailMovieActivity.DetailMovieActivity
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.card_layout.view.*
 
-class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
-
-    private var listMovies = ArrayList<Movie>()
+class MovieAdapter : PagedListAdapter<Movie, MovieAdapter.MovieViewHolder>(DIFF_CALLBACK) {
 
     companion object {
         const val EXTRA_DATA = "EXTRA_DATA"
-    }
 
-    fun setMovies(movies: List<Movie>) {
-        listMovies.clear()
-        listMovies.addAll(movies)
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Movie>() {
+            override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
+                return oldItem.id == newItem.id
+            }
+
+            override fun areContentsTheSame(oldItem: Movie, newItem: Movie): Boolean {
+                return oldItem == newItem
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
@@ -29,11 +34,11 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
         return MovieViewHolder(view)
     }
 
-    override fun getItemCount(): Int = listMovies.size
-
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        val movie = listMovies[position]
-        holder.bind(movie)
+        val movie = getItem(position)
+        if (movie != null) {
+            holder.bind(movie)
+        }
     }
 
     class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
